@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expedia - Manage Countries</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* Extra polish for the countries table */
+        #countriestable {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        #countriestable thead {
+            background: #0d6efd;
+            color: #fff;
+        }
+        #countriestable thead th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        #countriestable tbody tr:hover {
+            background-color: #f1f5ff !important;
+            cursor: pointer;
+        }
+        #addnewcountry {
+            margin-top: 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container-fluid py-4">
+        <div id="countrynotifications" class="mb-3"></div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped align-middle" id="countriestable">
+                <thead>
+                    <tr>
+                        <th style="width: 5%">#</th>
+                        <th style="width: 25%">Country Name</th>
+                        <th style="width: 20%">Cities</th>
+                        <th style="width: 20%">Airports</th>
+                        <th style="width: 20%">Airlines</th>
+                        <th style="width: 10%" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will load here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add a button for saving a country -->
+        <button class="btn btn-success btn-sm shadow-sm" id="addnewcountry">
+            <i class="fas fa-plus"></i> Add New Country
+        </button>
+    </div>
+
+    <!-- Modal for country details -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="countrydetailsmodal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Country Details</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="notifications" class="mb-2"></div>
+                    <input type="hidden" id="countryid" name="countryid" value="0">
+                    <div class="form-group">
+                        <label for="countryname">Country Name</label>
+                        <input type="text" name="countryname" id="countryname" class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-sm" id="savecountry">
+                        <i class="fas fa-save"></i> Save changes
+                    </button>
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.3.7.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/country.js"></script>
+</body>
+</html>
